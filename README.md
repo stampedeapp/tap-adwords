@@ -1,3 +1,10 @@
+# tap-facebook - Meltano Version
+
+This is a Meltano maintained fork of [tap-adwords](https://github.com/singer-io/tap-adwords).
+
+Check `CHANGELOG-Meltano.md` for the additional updates introduced in this project and the version of [tap-adwords](https://github.com/singer-io/tap-adwords) used.
+
+
 # tap-adwords
 
 This is a [Singer](https://singer.io) tap that produces JSON-formatted data following the [Singer spec](https://github.com/singer-io/getting-started/blob/master/SPEC.md).
@@ -50,14 +57,38 @@ The AdWords Tap will use the developer token and OAuth properties from the previ
 The following is an example of the required configuration
 
 ```json
-{"developer_token": "",
- "oauth_client_id": "",
- "oauth_client_secret": "",
- "refresh_token": "",
- "start_date": "",
- "user_agent": "",
- "customer_ids": ""}
+{
+  "developer_token": "",
+  "oauth_client_id": "",
+  "oauth_client_secret": "",
+  "refresh_token": "",
+  "start_date": "",
+  "user_agent": "",
+  "customer_ids": ""
+}
 ```
+
+Additional, non required options:
+
+```json
+{
+  "end_date": "",
+  "conversion_window_days": 0,
+  "primary_keys": {
+  	"KEYWORDS_PERFORMANCE_REPORT": ["campaignID", "adGroupID", "keywordID", "day"], 
+  	"AD_PERFORMANCE_REPORT": ["campaignID", "adGroupID", "adID", "day"], 
+  	"SEARCH_QUERY_PERFORMANCE_REPORT": ["campaignID", "adGroupID", "keywordID", "searchTerm", "day"], 
+  	"GENDER_PERFORMANCE_REPORT": ["campaignID", "adGroupID", "gender", "day"], 
+  	"AGE_RANGE_PERFORMANCE_REPORT": ["campaignID", "adGroupID", "ageRange", "day"]
+  }
+}
+```
+
+Where:
+
+* **end_date** - Set a different end date than today
+* **conversion_window_days** - Set the conversion window days for Performance Reports to something other than `-30` days
+* **primary_keys** - Alternative way to define primary keys for Performance Report streams if you do not want to set them by using custom metadata keys (check the last section for more details on the default way of setting them through the Metadata of each Stream)
 
 ### Create a properties file
 

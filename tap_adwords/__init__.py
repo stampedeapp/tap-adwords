@@ -204,7 +204,15 @@ def sync_report(stream_name, stream_metadata, sdk_client):
 
     xml_attribute_list = get_fields_to_sync(stream_schema, stream_metadata)
 
-    primary_keys = metadata.get(stream_metadata, (), 'tap-adwords.report-key-properties') or []
+    # Get the primary Keys for the Performance Report
+    # - If they are defined as metadata for the stream, use that definition (best case scenario)
+    # - Then check if you got the primary keys in the config.json, e.g.
+    #   "primary_keys": {"KEYWORDS_PERFORMANCE_REPORT": ["keywordID", "day"], ... ...}
+    # - Otherwise, default to [] (no primary keys for this stream)
+    primary_keys = (
+                    metadata.get(stream_metadata, (), 'tap-adwords.report-key-properties') or
+                    CONFIG.get('primary_keys', {}).get(stream_name, [])
+                   )
     LOGGER.info("{} primary keys are {}".format(stream_name, primary_keys))
 
     write_schema(stream_name, stream_schema, primary_keys, bookmark_properties=['day'])
