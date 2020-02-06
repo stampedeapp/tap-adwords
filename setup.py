@@ -3,9 +3,9 @@
 from setuptools import setup
 
 setup(name='tap-adwords',
-      version="1.12.0",
-      description='Singer.io tap for extracting data from the Adwords api',
-      author='Stitch',
+      version="meltano.1.0.0",
+      description='Meltano Maintained Fork of tap-adwords - a tap for extracting data from the Adwords api',
+      author='Meltano and Stitch',
       url='http://singer.io',
       classifiers=['Programming Language :: Python :: 3 :: Only'],
       py_modules=['tap_adwords'],

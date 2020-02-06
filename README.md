@@ -1,3 +1,10 @@
+# tap-facebook - Meltano Version
+
+This is a Meltano maintained fork of [tap-adwords](https://github.com/singer-io/tap-adwords).
+
+Check `CHANGELOG-Meltano.md` for the additional updates introduced in this project and the version of [tap-adwords](https://github.com/singer-io/tap-adwords) used.
+
+
 # tap-adwords
 
 This is a [Singer](https://singer.io) tap that produces JSON-formatted data following the [Singer spec](https://github.com/singer-io/getting-started/blob/master/SPEC.md).
