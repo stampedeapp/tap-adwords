@@ -3,7 +3,7 @@
 from setuptools import setup
 
 setup(name='tap-adwords',
-      version="meltano.1.0.0",
+      version="meltano.1.0.1",
       description='Meltano Maintained Fork of tap-adwords - a tap for extracting data from the Adwords api',
       author='Meltano and Stitch',
       url='http://singer.io',
