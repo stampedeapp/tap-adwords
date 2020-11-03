@@ -13,7 +13,7 @@ This tap:
 - Pulls raw data from the AdWords API
 - Extracts the following resources from AdWords for a one or more accounts:
   - [Accounts / Managed Customer](https://developers.google.com/adwords/api/docs/reference/v201705/ManagedCustomerService.ManagedCustomer)
-  - [Campaigns](https://developers.google.com/adwords/api/docs/reference/v201705/CampaignService.Campaign)
+  - [Campaigns](https://developers.google.com/adwords/api/docs/reference/v201705/CampaignService.Campaign) (except for [Smart Campaigns](https://support.google.com/google-ads/answer/7652860))
   - [Ad Groups](https://developers.google.com/adwords/api/docs/reference/v201705/AdGroupService.AdGroup)
   - [Ads](https://developers.google.com/adwords/api/docs/reference/v201705/AdGroupAdService.AdGroupAd)
   - [AdWords Reports](https://developers.google.com/adwords/api/docs/appendix/reports)
