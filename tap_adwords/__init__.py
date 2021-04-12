@@ -327,11 +327,13 @@ def with_retries_on_exception(sleepy_time, max_attempts):
 
 @with_retries_on_exception(RETRY_SLEEP_TIME, MAX_ATTEMPTS)
 def attempt_download_report(report_downloader, report):
+    if 'include_zero_impressions' in CONFIG:
+        include_zero_impressions=CONFIG['include_zero_impressions']
+    else:
+        include_zero_impressions=False
     result = report_downloader.DownloadReportAsStream(
         report, skip_report_header=True, skip_column_header=False,
-        skip_report_summary=True,
-        # Do not get data with 0 impressions, because some reports don't support that
-        include_zero_impressions=False)
+        skip_report_summary=True,include_zero_impressions=include_zero_impressions)
     return result
 
 def sync_report_for_day(stream_name, stream_schema, sdk_client, start, field_list): # pylint: disable=too-many-locals
